@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<title>To Do List</title>
+<style>
+h2 {
+  text-align: center;
+}
+textarea {
+  margin-left: 20px;
+  width: 80%;
+  height: auto;
+}
+#ulist {
+  border-radius: 5px;
+  box-shadow: black 2px 2px 2px;
+}
+li {
+  font-size: 1.5em;
+  background-color: rgb(150, 280, 200);
+}
+</style>
+</head>
+<body>
+<h2>To Do List</h2>
+<div>
+  <textarea id="cont"></textarea>
+  <button id="add">Add</button>
+</div>
+<div id="ulist"></div>
+<script>
+document.getElementById("add").addEventListener("click", function() {
+  let input = document.getElementById("cont").value;
+  if (input === "") {
+    alert("Please enter some text to add.");
+  } else {
+    let listItem = document.createElement("li");
+    let checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
+    listItem.appendChild(checkbox);
+    listItem.appendChild(document.createTextNode(input));
+    document.getElementById("ulist").appendChild(listItem);
+    document.getElementById("cont").value = "";
+  }
+});
+</script>
+</body>
+</html>
